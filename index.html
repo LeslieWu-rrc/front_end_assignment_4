@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Creating a dynamic survey</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Dynamic Survey</title>
+  </head>
+  <body>
+    <form id="walmartBagForm" action="#">
+      <h1>Is Walmart Bag a Gender?</h1>
+      
+      <!-- Part 1: Name -->
+      <div class="input-container">
+        <label for="userName">Full Name:</label>
+        <input type="text" id="userName" placeholder="Enter your name" />
+      </div>
+      
+      <!-- Part 2: Email -->
+      <div class="input-container">
+        <label for="userEmail">Email:</label>
+        <input type="text" id="userEmail" placeholder="Enter your email" />
+      </div>
+      
     
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>
-
