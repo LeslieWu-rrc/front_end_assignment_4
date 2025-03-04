@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // invoking preventDefault stops creating a new page request
     eventObject.preventDefault();
 
+    removeAllErrorMessages(); // remove all pre-existing error msg
+
     const isValid = validateForm();
     if (isValid) {
       formNode.submit();
@@ -16,22 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function validateForm() {
     let isValid = true;
 
-    // remove all pre-existing error messages
-    const errorMessageNodes = document.querySelectorAll(".error-message");
-    errorMessageNodes.forEach(e => {
-      e.remove();
-    });
-
-    // Validation for Name
+    // Validation for Last Name
     const nameInput = document.querySelector("#userName");
     const nameValue = nameInput.value.trim();
     // console.log(nameValue);
     
-    if (nameValue.length < 3) {
+    if (!isNotEmpty(nameValue)) {
       isValid = false;
-      showInputError(nameInput, "Name must be at least 3 characters.");
-    }
-    if (nameValue.includes(" ")) {
+      showInputError(nameInput, "Name cannot be empty.");
+    } if (nameValue.length < 4) {
+      isValid = false;
+      showInputError(nameInput, "Name must be at least 4 characters.");
+    } if (nameValue.includes(" ")) {
       isValid = false;
       showInputError(nameInput, "Name cannot contain spaces.");
     }
@@ -41,8 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailValue = emailInput.value.trim();
     // console.log(emailValue);
 
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(emailValue)) {
+    if (!isValidEmail(emailValue)) {
       isValid = false;
       showInputError(emailInput, "Please enter a valid email address.");
     }
@@ -50,6 +47,23 @@ document.addEventListener("DOMContentLoaded", () => {
     return isValid;
   }
 
+  function isNotEmpty(value) {
+    return value.trim().length > 0;
+  }
+
+  function isValidEmail(value) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(value.trim());
+  }
+
+  function removeAllErrorMessages() {
+    const errorMessageNodes = document.querySelectorAll(".error-message");
+    errorMessageNodes.forEach(e => {
+      e.remove();
+    });
+  }
+
+  // show error message
   function showInputError(inputElement, message) {
     // select the first ancestor of an element with the argument selector
     const inputContainer = inputElement.closest(".input-container");
