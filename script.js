@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // validate form
   function validateForm() {
     let isValid = true;
 
@@ -44,9 +45,24 @@ document.addEventListener("DOMContentLoaded", () => {
       showInputError(emailInput, "Please enter a valid email address.");
     }
 
+    // Validation for Radio 
+    if (!hasCheckedOption("walmartGender")) {
+      isValid = false;
+      const radioContainer = document.querySelector("input[name='walmartGender']").closest(".input-container");
+      showInputError(radioContainer, "Please select an option.");
+    }
+
+    // Validation for Checkbox 
+    if (!hasCheckedOption("gender")) {
+      isValid = false;
+      const checkboxContainer = document.querySelector("input[name='gender']").closest(".input-container");
+      showInputError(checkboxContainer, "Please select at least one option.");
+    }
+
     return isValid;
   }
 
+  // validate if the input is not empty
   function isNotEmpty(value) {
     return value.trim().length > 0;
   }
@@ -56,13 +72,24 @@ document.addEventListener("DOMContentLoaded", () => {
     return emailRegex.test(value.trim());
   }
 
+  // validate if the radio or checkbox is checked
+  function hasCheckedOption(inputName) {
+    const inputs = document.querySelectorAll(`input[name='${inputName}']`);
+    for (let input of inputs) {
+      if (input.checked) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function removeAllErrorMessages() {
     const errorMessageNodes = document.querySelectorAll(".error-message");
     errorMessageNodes.forEach(e => {
       e.remove();
     });
   }
-
+  
   // show error message
   function showInputError(inputElement, message) {
     // select the first ancestor of an element with the argument selector
