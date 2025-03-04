@@ -59,6 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
       showInputError(checkboxContainer, "Please select at least one option.");
     }
 
+    // Validation for Province Selection
+    const provinceSelect = document.querySelector("#provinceSelect");
+    if (!isSelected(provinceSelect)) {
+      isValid = false;
+      showInputError(provinceSelect, "Please select a province.");
+    }
+
     return isValid;
   }
 
@@ -81,6 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     return false;
+  }
+
+  // validate if the province is selected 
+  function isSelected(selectElement) {
+    return selectElement.value !== "";
   }
 
   function removeAllErrorMessages() {
