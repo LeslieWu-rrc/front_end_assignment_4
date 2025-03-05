@@ -17,28 +17,28 @@
         <!-- Name -->
         <div class="input-container">
           <label for="userName">Last Name:</label>
-          <input type="text" id="userName" placeholder="Enter your last name" />
+          <input type="text" id="userName" placeholder="Enter your last name" aria-label="Last Name" />
         </div>
 
         <!-- Email -->
         <div class="input-container">
           <label for="userEmail">Email:</label>
-          <input type="text" id="userEmail" placeholder="Enter your email" />
+          <input type="email" id="userEmail" placeholder="Enter your email" aria-label="Email" />
         </div>
 
         <!-- Gender -->
         <div class="input-container">
           <p>Gender(s):</p>
           <label>
-            <input type="checkbox" id="gender-male" name="gender" value="Male" />
+            <input type="checkbox" id="gender-male" name="gender" value="Male" aria-label="Male" />
             Male
           </label>
           <label>
-            <input type="checkbox" id="gender-female" name="gender" value="Female" />
+            <input type="checkbox" id="gender-female" name="gender" value="Female" aria-label="Female" />
             Female
           </label>
           <label>
-            <input type="checkbox" id="gender-walmartbag" name="gender" value="Walmart Bag" />
+            <input type="checkbox" id="gender-walmartbag" name="gender" value="Walmart Bag" aria-label="Walmart Bag" />
             Walmart Bag
           </label>
         </div>
@@ -46,7 +46,7 @@
         <!-- Province Selection -->
         <div class="input-container">
           <label for="provinceSelect">Province:</label>
-          <select id="provinceSelect" name="provinceSelect">
+          <select id="provinceSelect" name="provinceSelect" aria-label="Province">
             <option value="">Select your province</option>
             <option value="BC">BC</option>
             <option value="AB">AB</option>
@@ -62,7 +62,7 @@
         <!-- Date Picker -->
         <div class="input-container">
           <label for="birthDate">Date of Birth:</label>
-          <input type="date" id="birthDate" name="birthDate" />
+          <input type="date" id="birthDate" name="birthDate" aria-label="Date of Birth" />
         </div>
       </fieldset>
 
@@ -73,11 +73,11 @@
         <div class="input-container">
           <p>Is Walmart Bag a Gender?</p>
           <label for="walmartGenderYes">
-            <input type="radio" id="walmartGenderYes" name="walmartGender" value="Yes" />
+            <input type="radio" id="walmartGenderYes" name="walmartGender" value="Yes" aria-label="Yes" />
             Yes
           </label>
           <label for="walmartGenderNo">
-            <input type="radio" id="walmartGenderNo" name="walmartGender" value="No" />
+            <input type="radio" id="walmartGenderNo" name="walmartGender" value="No" aria-label="No" />
             No
           </label>
         </div>
@@ -85,7 +85,7 @@
         <!-- Text Area -->
         <div class="input-container">
           <label for="comments">Thoughts:</label>
-          <textarea id="comments" name="comments" placeholder="Enter your comments"></textarea>
+          <textarea id="comments" name="comments" placeholder="Enter your comments" aria-label="Thoughts"></textarea>
         </div>
       </fieldset>
 
