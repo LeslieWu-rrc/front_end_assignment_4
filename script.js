@@ -45,6 +45,28 @@ document.addEventListener("DOMContentLoaded", () => {
       showInputError(emailInput, "Please enter a valid email address.");
     }
 
+    // Validation for Checkbox 
+    if (!hasCheckedOption("gender")) {
+      isValid = false;
+      const checkboxContainer = document.querySelector("input[name='gender']").closest(".input-container");
+      showInputError(checkboxContainer, "Please select at least one option.");
+    }
+
+    // Validation for Province Selection
+    const provinceSelect = document.querySelector("#provinceSelect");
+    if (!isSelected(provinceSelect)) {
+      isValid = false;
+      showInputError(provinceSelect, "Please select a province.");
+    }
+    
+    // Validation for Date Picker 
+    const birthDateInput = document.querySelector("#birthDate");
+    const birthDateValue = birthDateInput.value;
+    if (!isNotEmpty(birthDateValue)) {
+        isValid = false;
+        showInputError(birthDateInput, "Please select your date of birth.");
+    }
+
     // Validation for Radio 
     if (!hasCheckedOption("walmartGender")) {
       isValid = false;
@@ -52,11 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
       showInputError(radioContainer, "Please select an option.");
     }
 
-    // Validation for Checkbox 
-    if (!hasCheckedOption("gender")) {
-      isValid = false;
-      const checkboxContainer = document.querySelector("input[name='gender']").closest(".input-container");
-      showInputError(checkboxContainer, "Please select at least one option.");
+    // Validation for Text Area 
+    const commentsInput = document.querySelector("#comments");
+    const commentsValue = commentsInput.value.trim();
+    if (!isNotEmpty(commentsValue)) {
+        isValid = false;
+        showInputError(commentsInput, "Please enter your comments.");
     }
 
     return isValid;
@@ -81,6 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     return false;
+  }
+
+  // validate if the province is selected 
+  function isSelected(selectElement) {
+    return selectElement.value !== "";
   }
 
   function removeAllErrorMessages() {

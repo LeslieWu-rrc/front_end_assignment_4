@@ -10,62 +10,87 @@
     <form id="surveyForm" action="https://httpbin.org/post" method="post">
       <h1>Is Walmart Bag a Gender?</h1>
       
-      <!-- Part 1: Name -->
-      <div class="input-container">
-        <label for="userName">Last Name:</label>
-        <input type="text" id="userName" placeholder="Enter your last name" />
-      </div>
-      
-      <!-- Part 2: Email -->
-      <div class="input-container">
-        <label for="userEmail">Email:</label>
-        <input type="text" id="userEmail" placeholder="Enter your email" />
-      </div>
+      <!-- Part 1: Personal Information -->
+      <fieldset>
+        <legend>Interviewee Information</legend>
+        
+        <!-- Name -->
+        <div class="input-container">
+          <label for="userName">Last Name:</label>
+          <input type="text" id="userName" placeholder="Enter your last name" aria-label="Last Name" />
+        </div>
 
-      <!-- Part 3: main question -->
-      <div class="input-container">
-        <p>Is Walmart Bag a Gender?</p>
-        <label for="walmartGenderYes">
-          <input type="radio" id="walmartGenderYes" name="walmartGender" value="Yes" />
-          Yes
-        </label>
-        <label for="walmartGenderNo">
-          <input type="radio" id="walmartGenderNo" name="walmartGender" value="No" />
-          No
-        </label>
-      </div>
+        <!-- Email -->
+        <div class="input-container">
+          <label for="userEmail">Email:</label>
+          <input type="email" id="userEmail" placeholder="Enter your email" aria-label="Email" />
+        </div>
 
-      <!-- Part 4: Gender -->
-      <div class="input-container">
-        <p>Gender(s):</p>
-        <label>
-          <input type="checkbox" id="gender-male" name="gender" value="Male" />
-          Male
-        </label>
-        <label>
-          <input type="checkbox" id="gender-female" name="gender" value="Female" />
-          Female
-        </label>
-        <label>
-          <input type="checkbox" id="gender-walmartbag" name="gender" value="Walmart Bag" />
-          Walmart Bag
-        </label>
-      </div>
+        <!-- Gender -->
+        <div class="input-container">
+          <p>Gender(s):</p>
+          <label>
+            <input type="checkbox" id="gender-male" name="gender" value="Male" aria-label="Male" />
+            Male
+          </label>
+          <label>
+            <input type="checkbox" id="gender-female" name="gender" value="Female" aria-label="Female" />
+            Female
+          </label>
+          <label>
+            <input type="checkbox" id="gender-walmartbag" name="gender" value="Walmart Bag" aria-label="Walmart Bag" />
+            Walmart Bag
+          </label>
+        </div>
 
-       <!-- Part 6: Date Picker -->
-       <div class="input-container">
-        <label for="birthDate">Date of Birth:</label>
-        <input type="date" id="birthDate" name="birthDate" />
-      </div>
+        <!-- Province Selection -->
+        <div class="input-container">
+          <label for="provinceSelect">Province:</label>
+          <select id="provinceSelect" name="provinceSelect" aria-label="Province">
+            <option value="">Select your province</option>
+            <option value="BC">BC</option>
+            <option value="AB">AB</option>
+            <option value="SK">SK</option>
+            <option value="MB">MB</option>
+            <option value="ON">ON</option>
+            <option value="QC">QC</option>
+            <option value="US">US</option>
+            <option value="OTHER">Other</option>
+          </select>
+        </div>
 
-      <!-- Part 7: Text Area -->
-      <div class="input-container">
-        <label for="comments">Thoughts:</label>
-        <textarea id="comments" name="comments" placeholder="Enter your comments"></textarea>
-      </div>
+        <!-- Date Picker -->
+        <div class="input-container">
+          <label for="birthDate">Date of Birth:</label>
+          <input type="date" id="birthDate" name="birthDate" aria-label="Date of Birth" />
+        </div>
+      </fieldset>
+
+      <!-- Part 2: Survey Details -->
+      <fieldset>
+        <legend>Survey Details</legend>
+        <!-- main question -->
+        <div class="input-container">
+          <p>Is Walmart Bag a Gender?</p>
+          <label for="walmartGenderYes">
+            <input type="radio" id="walmartGenderYes" name="walmartGender" value="Yes" aria-label="Yes" />
+            Yes
+          </label>
+          <label for="walmartGenderNo">
+            <input type="radio" id="walmartGenderNo" name="walmartGender" value="No" aria-label="No" />
+            No
+          </label>
+        </div>
+
+        <!-- Text Area -->
+        <div class="input-container">
+          <label for="comments">Thoughts:</label>
+          <textarea id="comments" name="comments" placeholder="Enter your comments" aria-label="Thoughts"></textarea>
+        </div>
+      </fieldset>
 
       <button type="submit">Register</button>
-		</form>
+    </form>
 
     <script src="./script.js"></script>
   </body>
